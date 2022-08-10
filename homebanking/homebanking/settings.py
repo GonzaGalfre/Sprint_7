@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'clientes.apps.ClientesConfig',
+    'cuentas.apps.CuentasConfig',
+    'login.apps.LoginConfig',
+    'prestamos.apps.PrestamosConfig',
+    'tarjetas.apps.TarjetasConfig',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +81,7 @@ WSGI_APPLICATION = 'homebanking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'itbank_final.db',
     }
 }
 
