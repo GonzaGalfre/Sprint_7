@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from .models import Prestamo
 
-# Create your views here.
 def index(request):
-    render()
+    prestamos = Prestamo.objects.all()
+    return render(request, 'prestamos/prestamos.html', {'prestamos':prestamos})

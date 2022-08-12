@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from .models import Tarjeta
 
-# Create your views here.
 def index(request):
-    render()
+    tarjetas = Tarjeta.objects.all()
+    return render(request, 'tarjetas/tarjetas.html', {'tarjetas':tarjetas})

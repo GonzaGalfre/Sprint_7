@@ -4,4 +4,4 @@ from .models import Cliente
 # Create your views here.
 def index(request):
     clients = Cliente.objects.all()
-    return render(request, 'clientes/index.html', {'clients':clients})
+    return render(request, 'clientes/clientes.html', {'clients':clients})
