@@ -1,0 +1,13 @@
+<form method="POST">
+    {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+        <p>{{error}}</p>
+      {% endfor %}
+    {% endif %}
+    {% csrf_token %}
+
+   
+
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
