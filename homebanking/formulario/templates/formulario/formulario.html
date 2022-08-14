@@ -1,36 +1,71 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3' crossorigin='anonymous'>
 
     <title>ITBANK - Formulario</title>
   </head>
   <body>
 
-    <div class="container">
+    <div class='container'>
+      <div class='container'>
 
-        <form action='/buscar/' method='GET'>
+        <form class='well form-horizontal' action=' ' method='post'  id='contact_form'>
+    <fieldset>
+    
+    <legend>Solicitud de Prestamos</legend>
+    
+    <div class='form-group'> 
+      <label class='control-label'>Tipo de Prestamo</label>
+        <div class='selectContainer'>
+        <div class='input-group'>
+            <span class='input-group-addon'><i class='glyphicon glyphicon-list'></i></span>
+        <select name='state' class='form-control selectpicker'>
+          <option value=' ' disabled selected>Elija el tipo de prestamo</option>
+          <option value='formal'>Formal</option>
+          <option value='informal'>Informal</option>
+        </select>
+      </div>
+    </div>
 
-            <input type='text' name='prd'>
-            <input type='button' name='Buscar'>
-
+    <label for='start'>Fecha de Inicio:</label>
+    <script>  today = new Date().toISOString().split('T')[0]; </script>
+    <input type='date' id='start' name='trip-start' value=today min=today max='2023-31-12'>
+  
+    <!-- Button -->
+    <div class='form-group'>
+      <label class='col-md-4 control-label'></label>
+      <div class='col-md-4'>
+        <button type='submit' class='btn btn-warning' >Enviar<span class='glyphicon glyphicon-send'></span></button>
+      </div>
     </div>
     
+    </fieldset>
+    </form>
+    </div>
+        </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+{% comment %} 
+        <form action='/buscar/' method='GET'>
+          <input type='text' name='prd' placeholder='Nombre'>
+            <input type='text' name='prd' placeholder='Apellido'>
+            <input type='submit' value='enviar'> {% endcomment %}
+
+    </div>
+
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p' crossorigin='anonymous'></scrip>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js' integrity='sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB' crossorigin='anonymous'></>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js' integrity='sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13' crossorigin='anonymous'></script>
     -->
   </body>
 </html>

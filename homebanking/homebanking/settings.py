@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'prestamos.apps.PrestamosConfig',
     'tarjetas.apps.TarjetasConfig',
+    'formulario.apps.FormularioConfig',
 ]
 
 MIDDLEWARE = [
