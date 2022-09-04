@@ -67,3 +67,20 @@ def cotizaciones(request):
 
     context = {'clientdata':clientdata, 'accdata':accdata}
     return render(request, 'clientes/cotizaciones.html', context)
+
+@login_required(login_url='/login/login/')
+def formulario(request):
+    clientdata = Cliente.objects.get(user_id = request.user.id)
+    
+    try:
+        accdata = Cuenta.objects.filter(customer_id = clientdata.customer_id)
+    except:
+        accdata = None
+    
+    try:
+        cardsdata = Tarjeta.objects.filter(customer_id = clientdata.customer_id)
+    except:
+        cardsdata = None
+
+    context = {'clientdata':clientdata, 'accdata':accdata, 'cardsdata':cardsdata}
+    return render(request, 'clientes/formulario.html', context)
