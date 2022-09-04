@@ -1,17 +1,15 @@
 from django.db import models
 from clientes.models import Cliente
 
-# Create your models here.
+ # Create your models here.
 class CardBrand(models.Model):
     card_brand_description = models.TextField()
-    card_brand_id = models.AutoField(primary_key=True)
 
     class Meta:
         managed = False
         db_table = 'card_brand'
 
 class Tarjeta(models.Model):
-    card_id = models.AutoField(primary_key=True)
     customer = models.ForeignKey(Cliente, models.DO_NOTHING)
     card_number = models.IntegerField(unique=True)
     card_cvv = models.IntegerField()

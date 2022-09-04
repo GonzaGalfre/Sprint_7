@@ -4,7 +4,6 @@ from clientes.models import Cliente
 # Create your models here.
 class AccountType(models.Model):
     customer = models.ForeignKey(Cliente, models.DO_NOTHING)
-    account_type_id = models.AutoField(primary_key=True)
     account_tipo = models.TextField()
 
     class Meta:
@@ -28,7 +27,6 @@ class AuditoriaCuenta(models.Model):
         db_table = 'auditoria_cuenta'
 
 class Cuenta(models.Model):
-    account_id = models.AutoField(primary_key=True)
     customer_id = models.IntegerField()
     balance = models.IntegerField()
     iban = models.TextField()
