@@ -5,131 +5,33 @@
     {% comment %} REEMPLAZAR CONTENIDO TEMPORAL POR EL DE PRESTAMOS {% endcomment %}
 
     <!-- Cuentas -->
-    <div class="col-6">
-        <article class="card" id="cards">
-            <div class="card-body">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <article class="card-header " id="cards">
+                <form> {% comment %} action="{% url '???' %}" method="POST"> {% comment %} Metodo Post  {% endcomment %}
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <h1><u>Solicita un prestamo</u></h1>
+                        <div class="col-5">
+                            <h2>Capital</h2>
+                                <p>Limite {{clientdata.acctype}}</p> {% comment %} Quiero que me diga si la cuentas es Black, Gold, etc para hacer la logica del monto maximo  {% endcomment %}
 
-                <!-- Primer Cuenta -->
-                <div>
-                    <div>
-                        <div class="row" id="card1Row">
-                            <div class="col-8">
-                                <p id="card1Text"><img id="star" src="../img/star.png"> Cuenta corriente #12AB</p>
-                            </div>
-                            <div class="col-4">
-                                <p id="card1Number">$ 123.456</p>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                                <input type="text" class="form-control" placeholder="5000">
+                                <div class="input-group-append"><span class="input-group-text">.00</span></div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Segunda Cuenta -->
-                    <div>
-                        <div class="row" id="card1Row">
-                            <div class="col-8">
-                                <p id="card1Text"><img id="star" src="../img/star0.png"> Cuenta corriente #34CD</p>
-                                <!-- <div id="card1Vl"></div>-->
-                            </div>
-                            <div class="col-4">
-                                <p id="card1Number">$ 789.101</p>
-                            </div>
+                        <div class="col-4">
+                            <h2>Duracion del prestamo (en meses)</h2>
+                            <input type="number" min="1" max="72" class="form-control" placeholder="12" >
                         </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
                     </div>
-
-                </div>
+                </form>
         </article>
-        </div>
-
-        <!-- Tarjetas -->
-        <div class="col-6">
-            <article class="card" id="cards">
-                <div class="card-body">
-                    <div>
-                        <div class="row">
-                            <div class="d-flex">
-
-                                <!-- Tarjeta 1 -->
-                                <div class="col-6">
-                                    <p id="card2Title">Debit card</p>
-                                    <img src="../img/credit card.png" alt="Credit card" id="card2Img">
-                                </div>
-
-                                <!-- Divisor -->
-                                <div id="card2Vl"> </div>
-
-                                <!-- Tarjeta 2 -->
-                                <div class="col-6">
-                                    <p id="card2Title">Credit card</p>
-                                    <img src="../img/credit card.png" alt="Credit card" id="card2Img">
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
     </div>
-
-    <div class="row">
-        <!-- Centrado de cuadro -->
-        <div class="col-3"></div>
-
-        <!-- Transferencias -->
-        <div class="col-6">
-            <article class="card" id="cards">
-                <div class="card-body">
-                    <div>
-
-                        <!-- Cuadro Ultimos Movimientos -->
-                        <div>
-                            <div class="col-4">
-                                <div class="row" id="card3Row">
-                                    <p id="card3Title"><img id="star" src="../img/star.png" style="width:1rem; height:auto;">Últimos movimientos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Transferencia 1 -->
-                        <div>
-                            <div class="row" id="card3Border">
-                                <div class="col-2">
-                                    <p class id="card3Date">16/05</p>
-                                </div>
-
-                                <div class="col-6">
-                                    <p class id="card3Transfer">Transferencia</p>
-                                </div>
-
-                                <div class="col-4">
-                                    <p class id="card3Number">$ 123.456</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Transferencia 2 -->
-                        <div>
-                            <div class="row" id="card3Border">
-                                <div class="col-2">
-                                    <p class id="card3Date">17/06</p>
-                                </div>
-
-                                <div class="col-6">
-                                    <p class id="card3Transfer">Transferencia</p>
-                                </div>
-
-                                <div class="col-4">
-                                    <p class id="card3Number">$ 789.101</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </article>
-        </div>
-        <div class="col-3"></div>
-    </div>
-</div>
 
 </body>
 

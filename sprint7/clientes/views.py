@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Cliente
-from cuentas.models import Cuenta, Movimientos
+from cuentas.models import Cuenta, Movimientos, AccountType
 from tarjetas.models import Tarjeta, CardBrand
 from django.contrib.auth.decorators import login_required
 
@@ -52,8 +52,13 @@ def prestamos(request):
         accdata = Cuenta.objects.filter(customer_id = clientdata.customer_id)
     except:
         accdata = None
+        
+    try:
+        acctype = AccountType.objects.filter(account_type_id = clientdata.account_type_id)
+    except:
+        acctype = None
 
-    context = {'clientdata':clientdata, 'accdata':accdata}
+    context = {'clientdata':clientdata, 'accdata':accdata, 'acctype':acctype}
     return render(request, 'clientes/prestamos.html', context)
 
 @login_required(login_url='/login/login/')
@@ -67,20 +72,3 @@ def cotizaciones(request):
 
     context = {'clientdata':clientdata, 'accdata':accdata}
     return render(request, 'clientes/cotizaciones.html', context)
-
-@login_required(login_url='/login/login/')
-def formulario(request):
-    clientdata = Cliente.objects.get(user_id = request.user.id)
-    
-    try:
-        accdata = Cuenta.objects.filter(customer_id = clientdata.customer_id)
-    except:
-        accdata = None
-    
-    try:
-        cardsdata = Tarjeta.objects.filter(customer_id = clientdata.customer_id)
-    except:
-        cardsdata = None
-
-    context = {'clientdata':clientdata, 'accdata':accdata, 'cardsdata':cardsdata}
-    return render(request, 'clientes/formulario.html', context)

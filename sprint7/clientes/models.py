@@ -13,3 +13,6 @@ class Cliente(models.Model):
     class Meta:
         db_table = 'cliente'
 
+class Formulario(models.Model):
+    capital = models.TextField()
+    meses = models.TextField()
