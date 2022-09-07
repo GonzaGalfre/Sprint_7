@@ -3,7 +3,8 @@ from .models import Cliente
 from cuentas.models import Cuenta, Movimientos, AccountType
 from tarjetas.models import Tarjeta, CardBrand
 from django.contrib.auth.decorators import login_required
-
+from .forms import loanform
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -46,19 +47,29 @@ def index(request):
 
 @login_required(login_url='/login/login/')
 def prestamos(request):
+    
+            
     clientdata = Cliente.objects.get(user_id = request.user.id)
-
+    
     try:
         accdata = Cuenta.objects.filter(customer_id = clientdata.customer_id)
     except:
         accdata = None
         
     try:
-        acctype = AccountType.objects.filter(account_type_id = clientdata.account_type_id)
+        acctype = AccountType.objects.filter(customer_id = clientdata.customer_id)
     except:
         acctype = None
+        
+    if request.method == 'POST':
+        form = loanform(request.POST)
+        if form.is_valid():
+            loan = form.cleaned_data.get('loan')
+            print(loan)
+    else: 
+        form = loanform()
 
-    context = {'clientdata':clientdata, 'accdata':accdata, 'acctype':acctype}
+    context = {'clientdata':clientdata, 'accdata':accdata, 'acctype':acctype, 'form': form}
     return render(request, 'clientes/prestamos.html', context)
 
 @login_required(login_url='/login/login/')
@@ -72,3 +83,20 @@ def cotizaciones(request):
 
     context = {'clientdata':clientdata, 'accdata':accdata}
     return render(request, 'clientes/cotizaciones.html', context)
+
+
+def formulario(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            
+            monto = form.cleaned_data.get('monto')
+            
+            clientdata = Cliente.objects.get(user_id = request.user.id)
+
+            try:
+                accdata = Cuenta.objects.filter(customer_id = clientdata.customer_id)
+            except:
+                accdata = None
+
+            pass
