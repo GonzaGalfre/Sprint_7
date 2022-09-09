@@ -124,3 +124,5 @@ def cotizaciones(request):
     return render(request, 'clientes/cotizaciones.html', context)
 
 
+def inicio(request):
+    return render(request, 'clientes/inicio.html')
