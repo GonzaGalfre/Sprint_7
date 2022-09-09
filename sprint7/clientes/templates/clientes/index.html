@@ -31,6 +31,7 @@
     />
 
     <title>ITBANK Main</title>
+
     <link
       rel="shortcut icon"
       href="{% static 'img/icon.png' %}"
@@ -222,19 +223,23 @@
 
                                     
                                     <div>
+                                        {% for m in transactionsdata %}
+
                                         <div class="row" id="card3Border">
                                             <div class="col-2">
-                                                <p class id="card3Date">16/05</p>
+                                                <p class="fs-6" id="card3Date">{{m.created_at}}</p>
                                             </div>
 
                                             <div class="col-6">
-                                                <p class id="card3Transfer">Transferencia</p>
+                                                <p class id="card3Transfer">{{m.transaction_type}}</p>
                                             </div>
 
                                             <div class="col-4">
-                                                <p class id="card3Number">$ 123.456</p>
+                                                <p class id="card3Number">${{m.amount|div:100}}</p>
                                             </div>
                                         </div>
+                                        {% endfor %}
+
                                     </div>
 
 
