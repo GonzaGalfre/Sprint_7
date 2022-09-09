@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Gonza\Documents\GitHub\Sprint_7\env"
+VIRTUAL_ENV="C:\Users\Gonza\Documents\AAAAAAAA\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

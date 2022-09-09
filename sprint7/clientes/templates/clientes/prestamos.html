@@ -1,0 +1,67 @@
+{% extends "Clientes/index.html" %} {% block content %}
+
+<body>
+
+    {% comment %} REEMPLAZAR CONTENIDO TEMPORAL POR EL DE PRESTAMOS {% endcomment %}
+
+    <!-- Cuentas -->
+    <div class="col-2"></div>
+    <div class="col-8">
+        <article class="card-header " id="cards">
+            {% comment %} <form action="" method="post">
+                    {% csrf_token %}
+                    <h1><u>Solicita un prestamo</u></h1>
+                    <div class="col-6">
+                        <h2 style="text-align: left">Capital</h2>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend"><div class="input-group-text">$</div></div>
+                            <input type="text" class="form-control" placeholder="5000" max="3" min="5000" placeholder="5000" required>
+                        </div>
+                        {% for c in acctype %}
+                            {% if c.account_tipo == 'Classic'%}
+                            <small>Máximo 5000</small>
+                            {% elif c.account_tipo == 'Black'%}
+                            <small>Máximo 1000</small>
+                            {% elif c.account_tipo == 'Black'%}
+                            <small>Máximo 1000</small>
+                            {% endif %}
+                        {% endfor %}
+                    </div> {% endcomment %}
+                    
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <table>
+                        {{ form }}
+                        </table>
+                        <input type="submit" value="Submit" />
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                    <div class="alert alert-success" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endif %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                    <div class="alert alert-danger" role="alert">
+                                    {{ message }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </form>
+
+                    {% comment %} <div class="col-6">
+                        <h2 style="text-align: left">Duracion del prestamo (mensual)</h2>
+                        <input type="number" min="1" max="72" class="form-control" placeholder="12" required>
+                        <small id="plazoHelp">Máximo 72 meses</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick=''>Solicitar</button>
+                </form> {% endcomment %}
+        </article>
+    </div>
+
+</body>
+
+{% endblock %}
+
+
