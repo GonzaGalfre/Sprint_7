@@ -9,6 +9,10 @@ Instalacion del Virtual Environment
 Instalar requirements
 
   - pip install -r requirements.txt
+  
+Iniciar el servidor
+
+  - cd sprint7 -python manage.py runserver
 
 
 USUARIOS OCUPADOS
